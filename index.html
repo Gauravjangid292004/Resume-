@@ -276,58 +276,20 @@ footer{
   color:rgba(255,255,255,.25);font-size:.75rem;
 }
 
-/* ── HAMBURGER ── */
-.hamburger{
-  display:none;flex-direction:column;gap:5px;
-  background:none;border:none;cursor:pointer;padding:4px;
-}
-.hamburger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
-.mobile-menu{
-  display:none;position:fixed;top:0;left:0;right:0;bottom:0;
-  background:rgba(249,248,245,0.98);z-index:190;
-  flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
-}
-.mobile-menu.open{display:flex}
-.mobile-menu a{font-family:'Playfair Display',serif;font-weight:700;font-size:2rem;color:var(--ink);text-decoration:none;transition:color .2s}
-.mobile-menu a:hover{color:var(--accent)}
-.mobile-menu-close{
-  position:absolute;top:1.5rem;right:1.5rem;
-  background:var(--ink);color:#fff;
-  width:42px;height:42px;border-radius:50%;
-  border:none;font-size:1.2rem;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  z-index:999;
-}
-
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
   nav{padding:1rem 1.5rem}
   .nav-links{display:none}
-  .hamburger{display:flex}
-  .hero{padding:7rem 1.5rem 3rem;min-height:100svh}
-  .hero-heading{font-size:clamp(2.6rem,11vw,3.8rem)}
+  .hero{padding:6rem 1.5rem 3rem}
   .hero-deco{display:none}
-  .hero-sub{font-size:.9rem}
-  .hero-cta{flex-direction:column;gap:.8rem}
-  .btn-dark,.btn-ghost{text-align:center;justify-content:center;width:100%}
-  section{padding:3.5rem 1.5rem}
-  .sec-title{font-size:clamp(1.6rem,7vw,2.2rem)}
-  .about-grid{grid-template-columns:1fr;gap:2.5rem}
-  .about-stats{grid-template-columns:1fr 1fr}
-  .exp-row{grid-template-columns:1fr;gap:.5rem}
-  .edu-card{grid-template-columns:1fr;gap:1.2rem}
-  .edu-cgpa{text-align:left;display:flex;align-items:center;gap:.8rem}
-  .cgpa-big{font-size:2.8rem}
+  section{padding:4rem 1.5rem}
+  .about-grid{grid-template-columns:1fr}
+  .exp-row{grid-template-columns:1fr}
+  .edu-card{grid-template-columns:1fr}
+  .edu-cgpa{text-align:left}
   .case-grid{grid-template-columns:1fr}
-  .project-card{grid-template-columns:1fr}
-  .proj-arrow{display:none}
-  .certs-grid{grid-template-columns:1fr}
-  #contact{padding:5rem 1.5rem}
-  .contact-email{font-size:clamp(1rem,5vw,1.5rem);word-break:break-all}
-  .contact-meta{gap:1rem;flex-wrap:wrap;justify-content:center}
   footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.5rem}
-  .case-study{padding:1.8rem 1.2rem}
-  .marquee-wrap{margin-top:2.5rem}
+  .project-card{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -344,20 +306,7 @@ footer{
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="GauravJangidResumeupdated.pdf" target="_blank" class="nav-resume">↓ Resume</a>
-  <button class="hamburger" id="hamburgerBtn" onclick="var m=document.getElementById('mobileMenu');if(m.style.display=='flex'){m.style.display='none';document.body.style.overflow='';}else{m.style.display='flex';document.body.style.overflow='hidden';}" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
-<!-- MOBILE MENU -->
-<div id="mobileMenu" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(249,248,245,0.98);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;">
-
-  <a href="#about" onclick="document.getElementById('mobileMenu').style.display='none';document.body.style.overflow='';" style="font-family:'Playfair Display',serif;font-weight:700;font-size:2rem;color:#111;text-decoration:none;">About</a>
-  <a href="#work" onclick="document.getElementById('mobileMenu').style.display='none';document.body.style.overflow='';" style="font-family:'Playfair Display',serif;font-weight:700;font-size:2rem;color:#111;text-decoration:none;">Work</a>
-  <a href="#experience" onclick="document.getElementById('mobileMenu').style.display='none';document.body.style.overflow='';" style="font-family:'Playfair Display',serif;font-weight:700;font-size:2rem;color:#111;text-decoration:none;">Experience</a>
-  <a href="#education" onclick="document.getElementById('mobileMenu').style.display='none';document.body.style.overflow='';" style="font-family:'Playfair Display',serif;font-weight:700;font-size:2rem;color:#111;text-decoration:none;">Education</a>
-  <a href="#contact" onclick="document.getElementById('mobileMenu').style.display='none';document.body.style.overflow='';" style="font-family:'Playfair Display',serif;font-weight:700;font-size:2rem;color:#111;text-decoration:none;">Contact</a>
-  <a href="GauravJangidResumeupdated.pdf" target="_blank" style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:#2a5cff;text-decoration:none;">↓ Resume</a>
-</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -464,7 +413,7 @@ footer{
           <span class="proj-tag">Java Collections</span>
         </div>
       </div>
-      <div class="proj-arrow">→</div>
+      <div class="proj-arrow">+</div>
     </div>
 
     <!-- CASE STUDY -->
@@ -628,24 +577,6 @@ footer{
 </footer>
 
 <script>
-// Mobile menu
-function openMenu(){
-  var m = document.getElementById('mobileMenu');
-  m.classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeMenu(){
-  var m = document.getElementById('mobileMenu');
-  m.classList.remove('open');
-  document.body.style.overflow='';
-}
-// Close when clicking outside menu content
-document.addEventListener('DOMContentLoaded', function(){
-  document.getElementById('mobileMenu').addEventListener('click', function(e){
-    if(e.target === this) closeMenu();
-  });
-});
-
 // Scroll reveal
 const obs = new IntersectionObserver(els => {
   els.forEach((e,i) => {
