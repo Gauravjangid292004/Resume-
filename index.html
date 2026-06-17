@@ -413,7 +413,7 @@ footer{
           <span class="proj-tag">Java Collections</span>
         </div>
       </div>
-      <div class="proj-arrow">+</div>
+      <div class="proj-arrow" id="caseArrow">+</div>
     </div>
 
     <!-- CASE STUDY -->
@@ -483,6 +483,93 @@ footer{
         </div>
       </div>
     </div>
+
+    <!-- PROJECT CARD 2 -->
+    <div class="project-card reveal" onclick="toggleEmpCase()">
+      <div>
+        <div class="proj-meta">
+          <span class="proj-num">02</span>
+          <span class="proj-type">JAVA · JDBC · MYSQL</span>
+        </div>
+        <div class="proj-title">Employee Management System</div>
+        <p class="proj-desc">A console-based Employee Management System using Java, JDBC, and MySQL to manage employee records with full CRUD operations, secure database connectivity, and DAO architecture.</p>
+        <div class="proj-stack">
+          <span class="proj-tag">Java</span>
+          <span class="proj-tag">JDBC</span>
+          <span class="proj-tag">MySQL</span>
+          <span class="proj-tag">SQL</span>
+          <span class="proj-tag">OOP</span>
+          <span class="proj-tag">Git</span>
+          <span class="proj-tag">GitHub</span>
+        </div>
+      </div>
+      <div class="proj-arrow" id="empCaseArrow">+</div>
+    </div>
+
+    <!-- EMPLOYEE CASE STUDY -->
+    <div class="case-study reveal" id="empCaseStudy" style="display:none">
+      <div class="case-study-header">
+        <div>
+          <div class="sec-label" style="margin-bottom:.4rem">Case Study</div>
+          <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:1.6rem;letter-spacing:-.02em">Employee Management System</div>
+        </div>
+        <span class="case-badge">JAVA · JDBC PROJECT</span>
+      </div>
+
+      <div class="case-grid">
+        <div class="case-block">
+          <div class="case-block-label">Role</div>
+          <div class="case-block-val">Solo Developer</div>
+        </div>
+        <div class="case-block">
+          <div class="case-block-label">Tech Stack</div>
+          <div class="case-block-val">Java, JDBC, MySQL, SQL, Git</div>
+        </div>
+        <div class="case-block">
+          <div class="case-block-label">Type</div>
+          <div class="case-block-val">Console Application</div>
+        </div>
+      </div>
+
+      <div class="case-section-title">Problem Statement</div>
+      <p class="case-text">Managing employee records manually or through spreadsheets is error-prone and hard to scale. The goal was to build a reliable, database-backed system that could handle employee data operations efficiently, securely, and persistently using a real relational database.</p>
+
+      <div class="case-divider"></div>
+
+      <div class="case-section-title">What I Built</div>
+      <ul class="case-list">
+        <li>Full CRUD operations — Create, Read, Update, and Delete employee records</li>
+        <li>MySQL database connectivity via JDBC with PreparedStatement for secure queries</li>
+        <li>Menu-driven console interface for easy navigation and interaction</li>
+        <li>DAO (Data Access Object) design pattern for clean separation of concerns</li>
+        <li>Unique email validation to prevent duplicate employee records</li>
+        <li>Robust database exception handling for reliable error management</li>
+        <li>Version control with Git and GitHub throughout development</li>
+      </ul>
+
+      <div class="case-divider"></div>
+
+      <div class="case-section-title">Technical Decisions</div>
+      <p class="case-text">Used <strong>JDBC with PreparedStatement</strong> instead of raw Statement to prevent SQL injection and ensure secure database interactions. Applied the <strong>DAO design pattern</strong> to decouple business logic from database access, making the codebase modular and easy to extend. Chose <strong>MySQL</strong> for persistent, structured storage of employee data with relational integrity.</p>
+
+      <div class="case-divider"></div>
+
+      <div class="case-section-title">GitHub Repository</div>
+      <p class="case-text">Source code available at: <a href="https://github.com/Gauravjangid292004/employee-management-system-java-jdbc" target="_blank" style="color:var(--accent);font-weight:600;text-decoration:none">github.com/Gauravjangid292004/employee-management-system-java-jdbc ↗</a></p>
+
+      <div class="case-divider"></div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <div class="case-block" style="flex:1;min-width:160px">
+          <div class="case-block-label">Key Learning</div>
+          <div class="case-block-val">JDBC connectivity, DAO architecture & secure SQL practices</div>
+        </div>
+        <div class="case-block" style="flex:1;min-width:160px">
+          <div class="case-block-label">Outcome</div>
+          <div class="case-block-val">Scalable console app with persistent MySQL storage & clean OOP design</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -591,8 +678,21 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 // Case study toggle
 function toggleCase(){
   const cs = document.getElementById('caseStudy');
-  cs.style.display = cs.style.display === 'none' ? 'block' : 'none';
-  if(cs.style.display==='block') cs.scrollIntoView({behavior:'smooth',block:'start'});
+  const btn = document.getElementById('caseArrow');
+  const isOpen = cs.style.display !== 'none';
+  cs.style.display = isOpen ? 'none' : 'block';
+  btn.textContent = isOpen ? '+' : '−';
+  if(!isOpen) cs.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// Employee case study toggle
+function toggleEmpCase(){
+  const cs = document.getElementById('empCaseStudy');
+  const btn = document.getElementById('empCaseArrow');
+  const isOpen = cs.style.display !== 'none';
+  cs.style.display = isOpen ? 'none' : 'block';
+  btn.textContent = isOpen ? '+' : '−';
+  if(!isOpen) cs.scrollIntoView({behavior:'smooth',block:'start'});
 }
 </script>
 </body>
